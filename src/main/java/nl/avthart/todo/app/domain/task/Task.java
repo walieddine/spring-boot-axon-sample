@@ -1,6 +1,13 @@
 package nl.avthart.todo.app.domain.task;
 
+import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
+
 import javax.validation.constraints.NotNull;
+
+import org.axonframework.commandhandling.CommandHandler;
+import org.axonframework.commandhandling.model.AggregateIdentifier;
+import org.axonframework.eventsourcing.EventSourcingHandler;
+import org.axonframework.spring.stereotype.Aggregate;
 
 import nl.avthart.todo.app.domain.task.commands.CompleteTaskCommand;
 import nl.avthart.todo.app.domain.task.commands.CreateTaskCommand;
@@ -12,12 +19,6 @@ import nl.avthart.todo.app.domain.task.events.TaskCreatedEvent;
 import nl.avthart.todo.app.domain.task.events.TaskStarredEvent;
 import nl.avthart.todo.app.domain.task.events.TaskTitleModifiedEvent;
 import nl.avthart.todo.app.domain.task.events.TaskUnstarredEvent;
-import org.axonframework.commandhandling.CommandHandler;
-import org.axonframework.commandhandling.model.AggregateIdentifier;
-import org.axonframework.eventsourcing.EventSourcingHandler;
-import org.axonframework.spring.stereotype.Aggregate;
-
-import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 
 /**
  * Task
